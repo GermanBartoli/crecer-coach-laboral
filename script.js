@@ -1,5 +1,6 @@
 const dialog=document.querySelector('#post-dialog');
 const image=document.querySelector('#post-image');
+const video=document.querySelector('#post-video');
 let activePost=null, imageIndex=0;
 const menu=document.querySelector('.menu');
 menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));document.querySelector('#nav').classList.toggle('open',open);});
@@ -28,10 +29,19 @@ contactForm.addEventListener('submit',async event=>{
   } finally {button.disabled=false;}
 });
 document.querySelector('#year').textContent=new Date().getFullYear();
-function showImage(){const images=activePost.images||[];document.querySelector('.modal-layout').classList.toggle('no-image',!images.length);if(images.length){image.src=images[imageIndex];image.alt=activePost.title+' · imagen '+(imageIndex+1);document.querySelector('#image-counter').textContent=`${imageIndex+1} / ${images.length}`;}document.querySelector('.gallery-controls').hidden=images.length<2;}
-function openPost(post){activePost=post;imageIndex=0;document.querySelector('#post-title').textContent=post.title;document.querySelector('#post-body').textContent=post.body;document.querySelector('#post-network').textContent=`CELESTE RIVERO · ${post.network}`;const source=document.querySelector('#post-source');source.href=post.url;source.textContent=post.sourceLabel||`Ver en ${post.network} ↗`;showImage();dialog.showModal();document.body.classList.add('modal-open');}
-function step(n){const count=activePost?.images?.length||0;if(count){imageIndex=(imageIndex+n+count)%count;showImage();}}
-document.querySelector('#previous').addEventListener('click',()=>step(-1));document.querySelector('#next').addEventListener('click',()=>step(1));document.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>document.body.classList.remove('modal-open'));dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});dialog.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1);}if(e.key==='ArrowLeft'){e.preventDefault();step(-1);}});
+function showImage(){
+  const images=activePost.images||[];
+  const hasVideo=Boolean(activePost.video);
+  document.querySelector('.modal-layout').classList.toggle('no-image',!images.length&&!hasVideo);
+  image.hidden=hasVideo||!images.length;
+  video.hidden=!hasVideo;
+  if(hasVideo){video.src=activePost.video;video.poster=images[0]||'';video.setAttribute('aria-label','Video: '+activePost.title);}
+  else if(images.length){image.src=images[imageIndex];image.alt=activePost.title+' · imagen '+(imageIndex+1);document.querySelector('#image-counter').textContent=`${imageIndex+1} / ${images.length}`;}
+  document.querySelector('.gallery-controls').hidden=hasVideo||images.length<2;
+}
+function openPost(post){activePost=post;imageIndex=0;document.querySelector('#post-title').textContent=post.title;document.querySelector('#post-body').textContent=post.body;document.querySelector('#post-network').textContent=`CELESTE RIVERO · ${post.network}`;const source=document.querySelector('#post-source');source.href=post.url;source.textContent=post.sourceLabel||`Ver en ${post.network} ↗`;showImage();dialog.showModal();document.body.classList.add('modal-open');if(activePost.video)video.play().catch(()=>{});}
+function step(n){if(activePost?.video)return;const count=activePost?.images?.length||0;if(count){imageIndex=(imageIndex+n+count)%count;showImage();}}
+document.querySelector('#previous').addEventListener('click',()=>step(-1));document.querySelector('#next').addEventListener('click',()=>step(1));document.querySelector('.close').addEventListener('click',()=>dialog.close());dialog.addEventListener('close',()=>{document.body.classList.remove('modal-open');video.pause();video.removeAttribute('src');video.load();});dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close();}});dialog.addEventListener('keydown',e=>{if(e.key==='ArrowRight'){e.preventDefault();step(1);}if(e.key==='ArrowLeft'){e.preventDefault();step(-1);}});
 let touchX=null;image.addEventListener('touchstart',e=>{touchX=e.changedTouches[0].clientX;},{passive:true});image.addEventListener('touchend',e=>{if(touchX!==null){const delta=e.changedTouches[0].clientX-touchX;if(Math.abs(delta)>45)step(delta<0?1:-1);touchX=null;}},{passive:true});
 function node(tag,cls,text){const el=document.createElement(tag);if(cls)el.className=cls;if(text)el.textContent=text;return el;}
 function card(post,journal=false){const button=node('button',journal?'journal-card':'post-card');button.type='button';button.setAttribute('aria-label','Leer: '+post.title);if(journal){button.append(node('span','in','in'));if(post.images?.length){const img=node('img');img.src=post.images[0];img.alt=post.title;img.loading='lazy';button.append(img);}button.append(node('h3','',post.title),node('p','',post.body.slice(0,145)+'…'),node('span','','Leer publicación ↗'));}else{const media=node('div','post-image');const img=node('img');img.src=post.images[0];img.alt=post.title;img.loading='lazy';media.append(img,node('span','badge',post.images.length>1?'▧':post.type==='Clip'?'▶':'↗'));button.append(media,node('span','post-label',post.images.length>1?`${post.images.length} imágenes · Instagram`:'CRecer · Instagram'),node('h3','',post.title));}button.addEventListener('click',()=>openPost(post));return button;}

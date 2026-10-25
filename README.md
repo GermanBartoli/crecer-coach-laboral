@@ -46,7 +46,7 @@ Editar `content.json` y agregar las imágenes a `assets/`. No hay sincronizació
 
 ## Alcance del material
 
-Captura editorial realizada el 24 de octubre de 2026. Se incluyen portadas y textos de los reels; los videos completos se ven en Instagram. Se recuperaron 2, 2, 3 y 3 imágenes de los cuatro carruseles de reflexiones. Los documentos multipágina de LinkedIn no se replicaron íntegramente. Para seis textos sin enlace individual recuperado, el botón dirige a la actividad de Celeste y lo indica expresamente. Las cuatro publicaciones destacadas conservan enlaces directos.
+Captura editorial realizada el 24 de octubre de 2026. Se incluyen los siete reels completos en MP4 para reproducirlos dentro del sitio, además de sus portadas, textos y enlaces al original en Instagram. Se recuperaron 2, 2, 3 y 3 imágenes de los cuatro carruseles de reflexiones. Los documentos multipágina de LinkedIn no se replicaron íntegramente. Para seis textos sin enlace individual recuperado, el botón dirige a la actividad de Celeste y lo indica expresamente. Las cuatro publicaciones destacadas conservan enlaces directos.
 
 No se afirma haber importado la mayoría del archivo histórico completo de LinkedIn. Se incluyeron diez textos propios recuperados y tres imágenes asociadas. No se publicaron búsquedas laborales de terceros ni sus datos de contacto.
 
