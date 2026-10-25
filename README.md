@@ -4,7 +4,7 @@ Landing de coaching laboral y desarrollo profesional. Identidad y contenidos de 
 
 ## Sitio
 
-Dirección prevista: `https://crecer-coach-laboral.pages.dev`. Publicación pendiente de autorización de Cloudflare; el conector actual dispone solo de lectura.
+Publicado en Cloudflare Pages: [CRecer · Celeste Rivero](https://crecer-coach-laboral.pages.dev).
 
 ## Contenido
 
