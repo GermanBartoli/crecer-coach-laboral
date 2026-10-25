@@ -1,0 +1,8 @@
+dist/
+node_modules/
+.wrangler/
+data/*-source.json
+data/*-raw.json
+data/instagram.json
+docs/capturas/
+scripts/prepare-content.js

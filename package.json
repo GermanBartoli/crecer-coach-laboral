@@ -1,0 +1,1 @@
+{"name":"crecer-coach-laboral","version":"1.0.0","private":true,"type":"module","scripts":{"build":"node scripts/build.js","check":"node --check script.js && node --check scripts/build.js","dev":"node scripts/dev.js","test":"node --test"}}
