@@ -13,7 +13,7 @@ Publicado en Cloudflare Pages: [CRecer · Celeste Rivero](https://crecer-coach-l
 - Carruseles de imágenes con controles, flechas de teclado, gesto táctil y cierre con Escape.
 - Diez textos de LinkedIn con lector interno y enlaces a la red.
 - Dos escenas editoriales generadas para las secciones de claridad y conversación.
-- WhatsApp, mapa de la zona centro de Córdoba y formulario exclusivamente visual, sin envío ni almacenamiento.
+- WhatsApp, mapa de la zona centro de Córdoba y formulario conectado a FormSubmit con destino a crecer.coaching.cr@gmail.com. El destinatario debe confirmar el correo de activación de FormSubmit para recibir consultas.
 
 ## Desarrollo
 

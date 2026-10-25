@@ -4,7 +4,29 @@ let activePost=null, imageIndex=0;
 const menu=document.querySelector('.menu');
 menu.addEventListener('click',()=>{const open=menu.getAttribute('aria-expanded')!=='true';menu.setAttribute('aria-expanded',String(open));document.querySelector('#nav').classList.toggle('open',open);});
 document.querySelectorAll('nav a').forEach(a=>a.addEventListener('click',()=>{menu.setAttribute('aria-expanded','false');document.querySelector('#nav').classList.remove('open');}));
-document.querySelector('#contact-form').addEventListener('submit',e=>e.preventDefault());
+const contactForm=document.querySelector('#contact-form');
+contactForm.addEventListener('submit',async event=>{
+  event.preventDefault();
+  if(!contactForm.reportValidity()) return;
+  const button=contactForm.querySelector('button');
+  const status=document.querySelector('#form-status');
+  if(button.disabled) return;
+  button.disabled=true;
+  status.textContent='Enviando tu consulta…';
+  try {
+    const response=await fetch(contactForm.action.replace('formsubmit.co/','formsubmit.co/ajax/'),{
+      method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded',Accept:'application/json'},
+      body:new URLSearchParams(new FormData(contactForm)),signal:AbortSignal.timeout(20000)
+    });
+    const result=await response.json();
+    if(/activat/i.test(result.message||'')) throw new Error('El correo todavía necesita confirmación. Mientras tanto, escribime por email o WhatsApp.');
+    if(!response.ok || (result.success!==true && result.success!=='true')) throw new Error('No pudimos enviar tu consulta. Intentá de nuevo o escribime por email o WhatsApp.');
+    status.textContent='¡Consulta enviada! Te responderé a tu correo.';
+    contactForm.reset();
+  } catch(error) {
+    status.textContent=error.name==='TimeoutError'?'El envío tardó demasiado. Intentá de nuevo o escribime por email o WhatsApp.':error instanceof TypeError?'No pudimos conectar. Revisá tu conexión o escribime por email o WhatsApp.':error.message;
+  } finally {button.disabled=false;}
+});
 document.querySelector('#year').textContent=new Date().getFullYear();
 function showImage(){const images=activePost.images||[];document.querySelector('.modal-layout').classList.toggle('no-image',!images.length);if(images.length){image.src=images[imageIndex];image.alt=activePost.title+' · imagen '+(imageIndex+1);document.querySelector('#image-counter').textContent=`${imageIndex+1} / ${images.length}`;}document.querySelector('.gallery-controls').hidden=images.length<2;}
 function openPost(post){activePost=post;imageIndex=0;document.querySelector('#post-title').textContent=post.title;document.querySelector('#post-body').textContent=post.body;document.querySelector('#post-network').textContent=`CELESTE RIVERO · ${post.network}`;const source=document.querySelector('#post-source');source.href=post.url;source.textContent=post.sourceLabel||`Ver en ${post.network} ↗`;showImage();dialog.showModal();document.body.classList.add('modal-open');}
