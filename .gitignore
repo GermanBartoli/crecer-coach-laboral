@@ -6,3 +6,5 @@ data/*-raw.json
 data/instagram.json
 docs/capturas/
 scripts/prepare-content.js
+/dist/
+/dist-github/
