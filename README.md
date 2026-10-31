@@ -1,5 +1,10 @@
 # CRecer · Celeste Rivero
 
+## Enlaces
+
+- [Sitio publicado en Cloudflare Pages](https://crecer-coach-laboral.pages.dev/)
+- [Repositorio en GitHub](https://github.com/GermanBartoli/crecer-coach-laboral)
+
 Landing de coaching laboral y desarrollo profesional. Identidad y contenidos de Celeste Rivero; repositorio administrado por German Bartoli.
 
 ## Sitio
@@ -51,6 +56,8 @@ Captura editorial realizada el 24 de octubre de 2026. Se incluyen los siete reel
 No se afirma haber importado la mayoría del archivo histórico completo de LinkedIn. Se incluyeron diez textos propios recuperados y tres imágenes asociadas. No se publicaron búsquedas laborales de terceros ni sus datos de contacto.
 
 ## Publicación
+
+Cada push a `main` ejecuta `.github/workflows/cloudflare.yml`: verifica la sintaxis, ejecuta las pruebas, compila y publica en el proyecto existente `crecer-coach-laboral`. El token se guarda en el secreto de GitHub Actions `CLOUDFLARE_API_TOKEN`. También admite ejecución manual.
 
 ```sh
 npx wrangler pages deploy dist --project-name crecer-coach-laboral --branch main
