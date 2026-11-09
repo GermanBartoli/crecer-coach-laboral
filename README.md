@@ -1,5 +1,22 @@
 # CRecer · Celeste Rivero
 
+**Espacio de coaching laboral y desarrollo profesional con publicaciones, recursos y formas de contacto.**
+
+[![Repositorio](https://img.shields.io/badge/GitHub-GermanBartoli-181717?logo=github)](https://github.com/GermanBartoli/crecer-coach-laboral)
+[![Verificaciones](https://github.com/GermanBartoli/crecer-coach-laboral/actions/workflows/cloudflare.yml/badge.svg)](https://github.com/GermanBartoli/crecer-coach-laboral/actions/workflows/cloudflare.yml)
+
+[Abrir sitio](https://crecer-coach-laboral.pages.dev/) · [Empezar](#primeros-pasos) · [Mapa del repositorio](#mapa-del-repositorio) · [Autoría](#autoría-de-esta-documentación)
+
+![Vista del proyecto: CRecer · Celeste Rivero](docs/images/vista-actual.jpg)
+
+*Captura de la página publicada, tomada el 9 de noviembre de 2026. Conservada sin redimensionar ni recomprimir.*
+
+## Primeros pasos
+
+1. Recorré Soy Celeste y Cómo te acompaño para conocer la propuesta.
+2. Abrí Ideas para crecer para leer textos, recorrer carruseles y reproducir los reels.
+3. Usá Hablemos para elegir la vía de contacto. Las publicaciones se mantienen desde `content.json`, sin sincronización automática con las redes.
+
 ## Enlaces
 
 - [Sitio publicado en Cloudflare Pages](https://crecer-coach-laboral.pages.dev/)
@@ -68,3 +85,16 @@ El dominio `crecer.dev` no estaba configurado en la cuenta de Cloudflare consult
 ## Propiedad
 
 © 2026 Celeste Rivero. Todos los derechos reservados. Las marcas de terceros conservan su titularidad. La atribución del sitio a Celeste no implica una transferencia de la cuenta de GitHub o Cloudflare.
+
+## Mapa del repositorio
+
+- [package.json](<package.json>)
+- [content.json](<content.json>)
+- [index.html](<index.html>)
+- [docs/PUBLICACION.md](<docs/PUBLICACION.md>)
+
+## Autoría de esta documentación
+
+Repositorio mantenido por [Germán Bartoli](https://github.com/GermanBartoli). Guía revisada y actualizada con **Codex**, coautor de esta actualización documental. Los autores, colaboradores, licencias y recursos de terceros conservan sus créditos originales.
+
+Los commits de esta revisión incluyen `Co-authored-by: Codex <noreply@openai.com>`; esta atribución no modifica la autoría del historial anterior.
