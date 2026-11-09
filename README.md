@@ -42,10 +42,10 @@ Publicado en Cloudflare Pages: [CRecer · Celeste Rivero](https://crecer-coach-l
 Sitio estático sin dependencias de ejecución. Requiere Node.js para preparar la distribución.
 
 ```sh
-npm run check
-npm test
-npm run build
-npm run dev
+pnpm run check
+pnpm test
+pnpm run build
+pnpm run dev
 ```
 
 El servidor local utiliza `http://127.0.0.1:4317`.
@@ -77,7 +77,7 @@ No se afirma haber importado la mayoría del archivo histórico completo de Link
 Cada push a `main` ejecuta `.github/workflows/cloudflare.yml`: verifica la sintaxis, ejecuta las pruebas, compila y publica en el proyecto existente `crecer-coach-laboral`. El token se guarda en el secreto de GitHub Actions `CLOUDFLARE_API_TOKEN`. También admite ejecución manual.
 
 ```sh
-npx wrangler pages deploy dist --project-name crecer-coach-laboral --branch main
+pnpm dlx wrangler pages deploy dist --project-name crecer-coach-laboral --branch main
 ```
 
 El dominio `crecer.dev` no estaba configurado en la cuenta de Cloudflare consultada. No se compró ni se registró ningún dominio. La dirección de publicación es la gratuita de Pages.
