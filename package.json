@@ -1,6 +1,6 @@
 {
   "name": "crecer-coach-laboral",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "private": true,
   "type": "module",
   "scripts": {
@@ -9,5 +9,5 @@
     "dev": "node scripts/dev.js",
     "test": "node --test"
   },
-  "packageManager": "pnpm@11.25.0"
+  "packageManager": "pnpm@12.18.0"
 }
