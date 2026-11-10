@@ -5,7 +5,7 @@
 [![Repositorio](https://img.shields.io/badge/GitHub-GermanBartoli-181717?logo=github)](https://github.com/GermanBartoli/crecer-coach-laboral)
 [![Verificaciones](https://github.com/GermanBartoli/crecer-coach-laboral/actions/workflows/cloudflare.yml/badge.svg)](https://github.com/GermanBartoli/crecer-coach-laboral/actions/workflows/cloudflare.yml)
 
-[Abrir sitio](https://crecer-coach-laboral.pages.dev/) · [Empezar](#primeros-pasos) · [Mapa del repositorio](#mapa-del-repositorio) · [Autoría](#autoría-de-esta-documentación)
+[Abrir en Cloudflare](https://crecer-coach-laboral.pages.dev/) · [Abrir en GitHub Pages](https://germanbartoli.github.io/crecer-coach-laboral/) · [Empezar](#primeros-pasos) · [Mapa del repositorio](#mapa-del-repositorio) · [Autoría](#autoría-de-esta-documentación)
 
 ![Vista del proyecto: CRecer · Celeste Rivero](docs/images/vista-actual.jpg)
 
